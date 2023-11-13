@@ -7,6 +7,11 @@ The project's main idea is to create an escape puzzle game where the user can ex
 ## Tools
 To create this project, we used Blender for house modeling and Godot for implementing the gameplay.
 
+## Launching
+1. Download and unzip the project
+2. Unzip the application.zip file
+3. Run CGProject.exe file in application folder
+
 ## Initial progress (14.11.2023)
 At this project stage, we decided on the final result of our project and created a pretty detailed plan of what would occur in the game.
 
