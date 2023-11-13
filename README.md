@@ -25,3 +25,6 @@ Currently, we have an initial Blender model of the house with initial textures. 
 ![image](https://github.com/LiisaLeit/Exploration-Puzzle-Game/assets/116260316/449141a5-3bc6-42dd-9657-d9e85077cfcf)
 
 ### GODOT
+We have imported the house model into Godot and implemented a door opening/closing. Also added a player with first-person perspective who can move around the house.
+![image](https://github.com/LiisaLeit/Exploration-Puzzle-Game/assets/116260316/633edb64-a301-48ef-9e68-a35705d4f62c)
+
