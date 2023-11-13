@@ -13,7 +13,7 @@ At this project stage, we decided on the final result of our project and created
 ### PLOT
 We have already planned the puzzle sequence and decided on the plot. The game's main plot is that the main character is trapped in the house because of the ghost of a woman whose soul can not find peace until someone hears her life story. At the beginning of the game, the player stands in the hallway and has access to a few other rooms while others are locked. During the game, the player solves different puzzles to find keys from the locked doors and get the pieces of a letter written by the woman whose ghost is now haunting the house. After all of the letter pieces are found, the woman's soul becomes free.
 
-You can see the text of the letter on our repository page. (?)
+You can see the text of the letter on our repository page.
 
 ### HOUSE MODEL
 Currently, we have an initial Blender model of the house with initial textures. The model does not have furniture and doors yet - these elements will be added at the next stages of the project.
