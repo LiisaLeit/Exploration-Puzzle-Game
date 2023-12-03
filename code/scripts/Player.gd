@@ -14,7 +14,7 @@ func _unhandled_input(event):
 			pivot.rotate_y(-event.relative.x * 0.003) # multiply by small value as rotatiom is in radians
 			camera.rotate_x(-event.relative.y * 0.003)
 			# limim up and down rotation
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

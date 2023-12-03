@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqgwek6y1j20l"]
+[gd_scene load_steps=9 format=3 uid="uid://bqgwek6y1j20l"]
 
 [ext_resource type="PackedScene" uid="uid://418d4ahdtlx4" path="res://player.tscn" id="1_ggvkl"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_j76r4"]
@@ -8,6 +8,19 @@
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v2xwh"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bm2a8"]
+sky_top_color = Color(0.0509804, 0.0705882, 0.0941176, 1)
+sky_horizon_color = Color(0.133333, 0.137255, 0.145098, 1)
+ground_bottom_color = Color(0.0901961, 0.0745098, 0.0509804, 1)
+ground_horizon_color = Color(0.152941, 0.160784, 0.164706, 1)
+
+[sub_resource type="Sky" id="Sky_6duq5"]
+sky_material = SubResource("ProceduralSkyMaterial_bm2a8")
+
+[sub_resource type="Environment" id="Environment_60afn"]
+background_mode = 2
+sky = SubResource("Sky_6duq5")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_j76r4")
@@ -23,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.45177e-07, 0)
 shape = SubResource("ConcavePolygonShape3D_v2xwh")
 
 [node name="Player" parent="." instance=ExtResource("1_ggvkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46708, 1.72576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46708, -2.04612)
 
 [node name="House" parent="." instance=ExtResource("3_isows")]
 transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-09, -5.60265, 0.51104, -4.53799)
@@ -31,3 +44,6 @@ transform = Transform3D(-6.55671e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55671e-0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0444947, 0.998341, 0.0365559, -0.941117, 0.0296124, 0.336782, 0.335141, -0.0493884, 0.940873, -0.65219, 7.39505, 2.82087)
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_60afn")
