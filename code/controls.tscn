@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4h21pn06wmok"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_nuipn"]
+[ext_resource type="Texture2D" uid="uid://b748rp3mfyuge" path="res://models/textures/background_image.png" id="2_b1u2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_koha4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68mm1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1u70"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkurl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n43b1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_np51b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nuipn")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_b1u2p")
+
+[node name="w" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 170.0
+offset_right = 146.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_koha4")
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="a" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 170.0
+offset_right = 246.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_68mm1")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="s" type="Label" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 170.0
+offset_right = 346.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1u70")
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="d" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 170.0
+offset_right = 446.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkurl")
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="e" type="Label" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 310.0
+offset_right = 296.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_n43b1")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="esc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 450.0
+offset_right = 314.0
+offset_bottom = 542.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_np51b")
+text = " Esc "
+
+[node name="move" type="Label" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 170.0
+offset_right = 659.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+text = "Move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="interact" type="Label" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 310.0
+offset_right = 730.0
+offset_bottom = 396.0
+theme_override_font_sizes/font_size = 60
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 450.0
+offset_right = 607.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 60
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1

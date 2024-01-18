@@ -1,0 +1,170 @@
+[gd_scene load_steps=14 format=3 uid="uid://clewsnlsxi67e"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_30qdr"]
+[ext_resource type="Texture2D" uid="uid://cahd24nwifpxc" path="res://models/textures/Cursor.png" id="1_o4t6m"]
+[ext_resource type="Texture2D" uid="uid://dyb5q2lyrgs0p" path="res://models/textures/letter_page_one.jpg" id="3_4x7bj"]
+[ext_resource type="Texture2D" uid="uid://bml177dvjk8x3" path="res://models/textures/letter_page_two.png" id="4_rmf4q"]
+[ext_resource type="Texture2D" uid="uid://bo36kbjyk8f17" path="res://models/textures/letter_page_three.png" id="5_g54jr"]
+[ext_resource type="Texture2D" uid="uid://c13axbts1rpad" path="res://models/textures/letter_page_four.png" id="6_x3lcp"]
+[ext_resource type="Texture2D" uid="uid://fx1aeg86k2rq" path="res://models/textures/letter_page_five.png" id="7_7w6tf"]
+[ext_resource type="Texture2D" uid="uid://c6v0jpi36v21s" path="res://models/textures/one.jpg" id="8_yoy2w"]
+[ext_resource type="Texture2D" uid="uid://0q3mc2bu3n4q" path="res://models/textures/two.jpg" id="9_y2072"]
+[ext_resource type="Texture2D" uid="uid://vbsa36npkf6s" path="res://models/textures/three.jpg" id="10_1bj4e"]
+[ext_resource type="Texture2D" uid="uid://c5svl8x20qy31" path="res://models/textures/piano_hint.png" id="11_mh107"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kdour"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1e02f"]
+height = 1.75719
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_30qdr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_kdour")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1e02f")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.777866, 0)
+
+[node name="Camera" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Image" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.51)
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("1_o4t6m")
+
+[node name="Info" type="Label3D" parent="Pivot/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.146, -1.66)
+no_depth_test = true
+render_priority = 1
+font_size = 18
+
+[node name="LetterOne" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, -0.53)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("3_4x7bj")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/LetterOne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02039, 4.80004, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 100
+
+[node name="LetterTwo" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, -0.53)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("4_rmf4q")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/LetterTwo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02039, 4.80004, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 100
+
+[node name="LetterThree" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, -0.53)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("5_g54jr")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/LetterThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02039, 4.80004, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 100
+
+[node name="LetterFour" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, -0.53)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("6_x3lcp")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/LetterFour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02039, 4.80004, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 100
+
+[node name="LetterFive" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, -0.53)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("7_7w6tf")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/LetterFive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02039, 4.80004, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 100
+
+[node name="NumberOne" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, -0.51)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("8_yoy2w")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/NumberOne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92174, 1.48103, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 47
+
+[node name="NumberTwo" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, -0.51)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("9_y2072")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/NumberTwo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92174, 1.48103, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 47
+
+[node name="NumberThree" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, -0.51)
+visible = false
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("10_1bj4e")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/NumberThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92174, 1.48103, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 47
+
+[node name="Hint" type="Sprite3D" parent="Pivot/Camera"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -0.51)
+visible = false
+texture = ExtResource("11_mh107")
+
+[node name="Label3D" type="Label3D" parent="Pivot/Camera/Hint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13117, 1.03557, 0)
+no_depth_test = true
+render_priority = 1
+text = "E (Close)"
+font_size = 27

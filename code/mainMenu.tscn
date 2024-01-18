@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://b427618rqr1md"]
+
+[ext_resource type="Texture2D" uid="uid://b748rp3mfyuge" path="res://models/textures/background_image.png" id="1_6gj4c"]
+[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_m0drm"]
+[ext_resource type="FontFile" uid="uid://c7jhe2a7llnwj" path="res://models/fonts/CakeMania.otf" id="2_hicmb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a11c2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0drm")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6gj4c")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 75.0
+offset_right = 1465.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("2_hicmb")
+theme_override_font_sizes/font_size = 180
+text = "Evelyn's Story"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 360.0
+offset_right = 520.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_a11c2")
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 510.0
+offset_right = 520.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 70
+text = "Controls"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 660.0
+offset_right = 520.0
+offset_bottom = 780.0
+theme_override_font_sizes/font_size = 70
+text = "Exit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfhtus6v7aobs"]
+
+[ext_resource type="Script" path="res://scripts/final.gd" id="1_xkh48"]
+[ext_resource type="Texture2D" uid="uid://b748rp3mfyuge" path="res://models/textures/background_image.png" id="2_dpamt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkh48")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dpamt")
+
+[node name="Thanks" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -642.5
+offset_top = 20.0
+offset_right = 642.5
+offset_bottom = 185.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 120
+text = "Thank you for playing!"
+
+[node name="Authors" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -310.0
+offset_right = 554.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Authors:
+Olga Puksberg, Nadiia Zaiachkovska, Liisa Leit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Game" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -835.0
+offset_top = -280.0
+offset_right = 835.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "The game was made as a project for course Computer Graphics (MTAT.03.015) in University of Tartu
+Spring, 2023/2024"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Escape" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -314.5
+offset_top = -100.0
+offset_right = 314.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Press Esc to exit the game"
