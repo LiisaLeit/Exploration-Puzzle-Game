@@ -1,6 +1,9 @@
 extends Node3D
 
 
+signal kitchen_key_picked
+signal second_floor_key_picked
+
 const RAY_LENGTH = 500.0
 
 var camera
@@ -93,11 +96,13 @@ func _input(event):
 			sound.play()
 			door_key_picked["KitchenDoor"] = true
 			kitchen_key.queue_free()
+			kitchen_key_picked.emit()
 		elif result and "SecondFloorKey" in result.collider.to_string():
 			var sound = get_node("SecondFloorKeyPicked")
 			sound.play()
 			door_key_picked["TrapDoor"] = true
 			second_floor_key.queue_free()
+			second_floor_key_picked.emit()
 		elif result and "Gate" in result.collider.to_string() and game_end:
 			timer.start()
 			get_node("LetterFiveSound").play()

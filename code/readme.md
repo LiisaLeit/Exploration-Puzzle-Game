@@ -5,4 +5,5 @@
 4. put file "Outside.glb" into the code/models/rooms/outside folder;
 5. in Godot editor press "Import";
 6. navigate to the repository folder, choose code/project.godot and press "Import & Edit";
-7. wait until all the necessary files are (re)imported.
+7. wait until all the necessary files are (re)imported;
+8. close and reopen the editor.

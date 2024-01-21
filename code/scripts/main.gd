@@ -102,13 +102,12 @@ func _on_mirror_riddle_solved():
 	yard.queue_free()
 	porch.queue_free()
 	mirror_riddle_solved = true
-	
-func _on_piano_riddle_solved():
+
+func _on_doors_kitchen_key_picked():
 	piano_riddle_solved = true
 
-func _on_safe_riddle_solved():
+func _on_doors_second_floor_key_picked():
 	safe_riddle_solved = true
-
+	
 func _on_final_painting_riddle_solved():
 	final_riddle_solved = true
-	
