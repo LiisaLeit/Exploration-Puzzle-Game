@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://br0v8f45j7kcq"
+path="res://.godot/imported/yard.exr-e9d80ce20f0be1100025525558ed73ec.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://light/yard.exr"
+dest_files=["res://.godot/imported/yard.exr-e9d80ce20f0be1100025525558ed73ec.ctexarray"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=2

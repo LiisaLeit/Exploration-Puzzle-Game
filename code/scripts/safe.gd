@@ -30,6 +30,12 @@ var numbers = {
 	"numberThree": null,
 }
 
+var sounds = {
+	"numberOne": null,
+	"numberTwo": null,
+	"numberThree": null
+}
+
 var zoom = false
 
 var signal_emitted = false
@@ -38,20 +44,26 @@ var signal_emitted = false
 func _ready():
 	camera = get_viewport().get_camera_3d()
 	player = get_node("/root/Main/Player")
+	
+	label = get_node("/root/Main/Player/Pivot/Camera/Info")
+	image = get_node("/root/Main/Player/Pivot/Camera/Image")
+	
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 4.0
+	timer.timeout.connect(_on_timer_timeout)
+	
 	roll1 = get_node("SafeDoor/Roll1")
 	roll2 = get_node("SafeDoor/Roll2")
 	roll3 = get_node("SafeDoor/Roll3")
-	image = get_node("/root/Main/Player/Pivot/Camera/Image")
 	
 	numbers["numberOne"] = get_node("/root/Main/Player/Pivot/Camera/NumberOne")
 	numbers["numberTwo"] = get_node("/root/Main/Player/Pivot/Camera/NumberTwo")
 	numbers["numberThree"] = get_node("/root/Main/Player/Pivot/Camera/NumberThree")
 	
-	label = get_node("/root/Main/Player/Pivot/Camera/Info")
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 4.0
-	timer.timeout.connect(_on_timer_timeout)
+	sounds["numberOne"] = get_node("PaperOne/PaperTaken")
+	sounds["numberTwo"] = get_node("PaperTwo/PaperTaken")
+	sounds["numberThree"] = get_node("PaperThree/PaperTaken")
 
 
 func _input(event):
@@ -111,7 +123,7 @@ func check_numbers():
 
 func set_image(image_name):
 	if zoom:
-		get_node("PaperTaken").play()
+		sounds[image_name].play()
 		timer.start()
 		label.text = "Hmm... At first glance it's just a number, but there's more to it. Some kind of code, maybe?"
 		image.hide()

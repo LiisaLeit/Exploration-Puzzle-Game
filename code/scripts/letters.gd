@@ -24,6 +24,14 @@ var letters = {
 	"letterFive": null,
 }
 
+var sounds = {
+	"letterOne": null,
+	"letterTwo": null,
+	"letterThree": null,
+	"letterFour": null,
+	"letterFive": null,
+}
+
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
@@ -51,6 +59,12 @@ func _ready():
 	letters["letterThree"] = get_node("/root/Main/Player/Pivot/Camera/LetterThree")
 	letters["letterFour"] = get_node("/root/Main/Player/Pivot/Camera/LetterFour")
 	letters["letterFive"] = get_node("/root/Main/Player/Pivot/Camera/LetterFive")
+	
+	sounds["letterOne"] = get_node("LetterPageOne/PaperTaken")
+	sounds["letterTwo"] = get_node("LetterPageTwo/PaperTaken")
+	sounds["letterThree"] = get_node("LetterPageThree/PaperTaken")
+	sounds["letterFour"] = get_node("LetterPageFour/PaperTaken")
+	sounds["letterFive"] = get_node("LetterPageFive/PaperTaken")
 
 
 func _input(event):
@@ -75,7 +89,7 @@ func _input(event):
 
 func set_image(image_name):
 	if zoom:
-		get_node("PaperTaken").play()
+		sounds[image_name].play()
 		image.hide()
 		letters[image_name].show()
 		if image_name == "letterFive":

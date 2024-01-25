@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbunu42j8scd6"
+path="res://.godot/imported/handle-paper-foley-2-172689 (mp3cut.net).mp3-d832d061dedab5ffe371cd96600ffff8.mp3str"
+
+[deps]
+
+source_file="res://sounds/objects/handle-paper-foley-2-172689 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/handle-paper-foley-2-172689 (mp3cut.net).mp3-d832d061dedab5ffe371cd96600ffff8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -9,14 +9,14 @@ const SEQUENCE = ["5-fs", "5-c", "4-ds", "4-f", "5-e", "5-as", "4-gs"]
 var camera
 var player
 
-var label
 var image
-var hint
 var timer
+var book
 
 var pressed_keys = []
 
 var zoom = false
+var signal_emitted = false
 
 
 func _ready():
@@ -24,12 +24,10 @@ func _ready():
 	player = get_node("/root/Main/Player")
 	
 	image = get_node("/root/Main/Player/Pivot/Camera/Image")
-	label = get_node("/root/Main/Player/Pivot/Camera/Info")
-	hint = get_node("/root/Main/Player/Pivot/Camera/Hint")
 	
 	timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 3.0
+	timer.wait_time = 2.0
 	timer.timeout.connect(_on_timer_timeout)
 	
 
@@ -53,42 +51,29 @@ func _input(event):
 			get_node(collider_name+"/AudioStreamPlayer3D").play()
 			check_pressed_keys()
 		elif result and result.collider.is_in_group("books"):
+			book = result.collider.to_string().split(":")[0]
+			image.hide()
+			get_node("/root/Main/Player/Pivot/Camera/" + book).show()
+			get_node(book).play()
 			timer.start()
-			label.text = "These black and white books remind me of something..."
-		elif result and "Notes" in result.collider.to_string():
-			timer.start()
-			label.text = "These notes look strange."
-		elif result and "Hint" in result.collider.to_string():
-			zoom = !zoom
-			set_image(hint)
-		else:
-			image.show()
-			hint.hide()
 
 
 func check_pressed_keys():
+	if signal_emitted:
+		return
 	for i in range(len(pressed_keys)):
 		if pressed_keys[i] != SEQUENCE[i]:
 			pressed_keys = []
 	if pressed_keys.hash() == SEQUENCE.hash():
 		get_node("KeyplaceOpen").play()
 		riddle_solved.emit()
-
-func set_image(texture):
-	if zoom:
-		get_node("PaperTaken").play()
-		timer.start()
-		label.text = "Hmm..."
-		image.hide()
-		hint.show()
-	else:
-		hint.hide()
-		image.show()
+		signal_emitted = true
 
 
 func _on_timer_timeout():
 	timer.stop()
-	label.text = ""
+	get_node("/root/Main/Player/Pivot/Camera/" + book).hide()
+	image.show()
 
 
 func _on_riddle_solved():

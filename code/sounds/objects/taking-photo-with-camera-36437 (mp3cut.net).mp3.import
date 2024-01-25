@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1pucs71t2net"
+path="res://.godot/imported/taking-photo-with-camera-36437 (mp3cut.net).mp3-16201cd4c669d7701d8b51dc4c751f7a.mp3str"
+
+[deps]
+
+source_file="res://sounds/objects/taking-photo-with-camera-36437 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/taking-photo-with-camera-36437 (mp3cut.net).mp3-16201cd4c669d7701d8b51dc4c751f7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

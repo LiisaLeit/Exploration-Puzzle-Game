@@ -37,6 +37,15 @@ var pieces_put = {
 	"Part6": false
 }
 
+var sounds = {
+	"Part1": null,
+	"Part2": null,
+	"Part3": null,
+	"Part4": null,
+	"Part5": null,
+	"Part6": null
+}
+
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
@@ -48,6 +57,13 @@ func _ready():
 	add_child(timer)
 	timer.wait_time = 3.0
 	timer.timeout.connect(_on_timer_timeout)
+	
+	sounds["Part1"] = get_node("Part1/PhotoPicked")
+	sounds["Part2"] = get_node("Part2/PhotoPicked")
+	sounds["Part3"] = get_node("Part3/PhotoPicked")
+	sounds["Part4"] = get_node("Part4/PhotoPicked")
+	sounds["Part5"] = get_node("Part5/PhotoPicked")
+	sounds["Part6"] = get_node("Part6/PhotoPicked")
 
 
 func _input(event):
@@ -70,7 +86,7 @@ func _input(event):
 				return
 			timer.start()
 			label.text = "I found a piece of a photo"
-			get_node("PhotoPicked").play()
+			sounds[collider_name].play()
 			get_node(collider_name).hide()
 			pieces_picked[collider_name] = true
 
@@ -85,7 +101,7 @@ func put_pieces():
 			node.scale = SCALE
 			node.show()
 			pieces_put[key] = true
-			get_node("PhotoPicked").play()
+			sounds[key].play()
 			if pieces == 6:
 				break
 			return

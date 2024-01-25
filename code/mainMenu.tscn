@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b427618rqr1md"]
+[gd_scene load_steps=4 format=3 uid="uid://b427618rqr1md"]
 
 [ext_resource type="Texture2D" uid="uid://b748rp3mfyuge" path="res://models/textures/background_image.png" id="1_6gj4c"]
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_m0drm"]
 [ext_resource type="FontFile" uid="uid://c7jhe2a7llnwj" path="res://models/fonts/CakeMania.otf" id="2_hicmb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a11c2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -38,7 +36,6 @@ offset_top = 360.0
 offset_right = 520.0
 offset_bottom = 480.0
 theme_override_font_sizes/font_size = 70
-theme_override_styles/normal = SubResource("StyleBoxTexture_a11c2")
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="."]
