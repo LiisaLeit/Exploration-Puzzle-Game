@@ -12,6 +12,7 @@ var timer
 
 var letter_two
 var letter_three
+var letter_four
 var letter_five
 
 var zoom = false
@@ -50,6 +51,9 @@ func _ready():
 	
 	letter_three = get_node("LetterPageThree")
 	letter_three.hide()
+	
+	letter_four = get_node("LetterPageFour")
+	letter_four.hide()
 	
 	letter_five = get_node("LetterPageFive")
 	letter_five.hide()
@@ -113,6 +117,7 @@ func _on_piano_riddle_solved():
 
 func _on_safe_riddle_solved():
 	get_node("LetterFourSound").play()
+	letter_four.show()
 
 func _on_final_painting_riddle_solved():
 	get_node("PaintingComplete").play()

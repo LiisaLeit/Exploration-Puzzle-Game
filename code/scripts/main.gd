@@ -6,8 +6,6 @@ signal close_library_living_room
 signal close_kitchen_dining_room
 signal close_bedroom
 
-const TIMER_LIMIT = 10.0
-
 var porch_scene = preload("res://scenes/porch.tscn")
 var yard_scene = preload("res://scenes/yard.tscn")
 var hallway_scene = preload("res://scenes/hallway.tscn")
@@ -30,12 +28,14 @@ var kitchen
 var dining_room
 var bedroom
 
-var timer = 0.0
-
 var mirror_riddle_solved = false
 var piano_riddle_solved = false
 var safe_riddle_solved = false
 var final_riddle_solved = false
+var door_closed = false
+
+var inside = false
+var outside = true
 
 
 func _ready():
@@ -55,10 +55,6 @@ func _ready():
 
 
 func _process(delta):
-	#timer += delta
-	#if timer > TIMER_LIMIT:
-		#timer = 0.0
-		#print("fps: " + str(Engine.get_frames_per_second()))
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene_to_file("res://mainMenu.tscn")
 	if mirror_riddle_solved and player.position.x > 2.7:
@@ -95,12 +91,25 @@ func _process(delta):
 		porch = porch_scene.instantiate()
 		add_child(porch)
 		final_riddle_solved = false
+	elif !door_closed and (player.position.z < -5.5 or player.position.x < 3.0 and player.position.z < -3.0):
+		close_main_door.emit()
+		yard.queue_free()
+		porch.queue_free()
+		door_closed = true
+	
+	if player.position.z < 0 and !inside:
+		inside = true
+		outside = false
+		get_node("Sounds/InsideWind").playing = true
+		get_node("Sounds/OutsideWind").playing = false
+	elif player.position.z > 0 and !outside:
+		inside = false
+		outside = true
+		get_node("Sounds/InsideWind").playing = false
+		get_node("Sounds/OutsideWind").playing = true
 
 
 func _on_mirror_riddle_solved():
-	close_main_door.emit()
-	yard.queue_free()
-	porch.queue_free()
 	mirror_riddle_solved = true
 
 func _on_doors_kitchen_key_picked():

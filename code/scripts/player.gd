@@ -1,12 +1,15 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 4.0
 
 @onready var pivot := $Pivot
 @onready var camera := $Pivot/Camera
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var inside = false
+var outside = false
 
 
 func _ready():
@@ -23,9 +26,25 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if position.z < 0 and !inside:
+			inside = true
+			outside = false
+			get_node("Sounds/MovingInside").playing = true
+			get_node("Sounds/MovingOutside").playing = false
+		elif position.z > 0 and !outside:
+			inside = false
+			outside = true
+			get_node("Sounds/MovingInside").playing = false
+			get_node("Sounds/MovingOutside").playing = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if position.z < 0:
+			inside = false
+			get_node("Sounds/MovingInside").playing = false
+		else:
+			outside = false
+			get_node("Sounds/MovingOutside").playing = false
 
 	move_and_slide()
 

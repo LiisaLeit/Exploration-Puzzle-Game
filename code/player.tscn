@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://clewsnlsxi67e"]
+[gd_scene load_steps=22 format=3 uid="uid://clewsnlsxi67e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_30qdr"]
 [ext_resource type="Texture2D" uid="uid://cahd24nwifpxc" path="res://models/textures/Cursor.png" id="1_o4t6m"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cbumbgx7wl7hx" path="res://models/textures/piano_key_5.png" id="15_e6q45"]
 [ext_resource type="Texture2D" uid="uid://cw0pcb27iclqq" path="res://models/textures/piano_key_6.png" id="16_72jl8"]
 [ext_resource type="Texture2D" uid="uid://ce5t4ul3qgk27" path="res://models/textures/piano_key_7.png" id="17_ctu6n"]
+[ext_resource type="AudioStream" uid="uid://bs5j0k0lcmlpj" path="res://sounds/effects/walking-on-a-wooden-floor-32056.mp3" id="18_o4hsp"]
+[ext_resource type="AudioStream" uid="uid://prcjb0mun4s2" path="res://sounds/effects/footsteps_grass_1-6810.mp3" id="19_q5emg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kdour"]
 
@@ -211,3 +213,17 @@ visible = false
 no_depth_test = true
 render_priority = 1
 texture = ExtResource("17_ctu6n")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="MovingInside" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("18_o4hsp")
+volume_db = 4.0
+pitch_scale = 1.1
+bus = &"Walking"
+
+[node name="MovingOutside" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("19_q5emg")
+volume_db = 4.0
+pitch_scale = 1.1
+bus = &"Walking"
